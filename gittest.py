@@ -9,12 +9,6 @@ import sys
 
 def sanitize(url, msg):
     lst = url.split("/commits/")
-    l = len(lst[0])
-    temp = lst[0].split("/")
-    repo = temp[5]
-    lst[0] = "https://github.com" + lst[0][28:l] + ".git"
-    lst += [repo]
-    lst += [''.join(i for i in msg if ord(i)<128 and ord(i) not in [40, 41, 93, 91])]
     return tuple([str(x) for x in lst])
 
 
