@@ -13,13 +13,6 @@ def parse(line):
 def get_info(filename):
     with open(filename) as f:
         json_array = json.load(f)
-        arr = []
-        # file = f.read()
-        # arr = str(file).split("},")
-        # arr = [str("".join(i.split()) + "}") for i in arr]
-        # arr[0] = arr[0].replace("[", "")
-        # arr[len(arr) - 1] = arr[len(arr) - 1].replace("]}", "")
-        # data = [json.loads(a) for a in arr]
         return str([parse(item) for item in json_array])
 
 
