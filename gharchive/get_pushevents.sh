@@ -16,9 +16,9 @@
 
 for i in {03..03}
 do
-  for j in {31..31}
+  for j in {01..31}
   do
-    for k in {23..23}
+    for k in {0..23}
     do
       #gets json file of year/month/day/hour data
       ext="2019-$i-$j-$k"
@@ -37,29 +37,6 @@ do
       echo $lst
       #remove data once parsed for space purposes
       rm -r "$ext.json"
-
-      # run clang on previous commit
-
-      IFS=')]' read -r -a array <<< "$lst"
-      IFS=', (' 
-      for x in "${array[@]}"
-      do
-        cd ~/desktop/s19
-        rm -rf .git
-        git init
-        IFS="', '"
-        set -- ${x//[,)(\'\[\]]}
-        # split results to get repo url, commit hash, repo name, and commit msg
-        repo_url=$2
-        buggy_hash=$3
-        fixed_hash=$4
-        repo_name=$1
-	      commit_msg=${@:5}
-	      if [[ "$x" != "kernel" ]];
-	      then
-        printf '{"repo_name":"%s","repo_url":"%s","buggy_hash":"%s","fixed_hash":"%s","commit_msg":"%s"},\n' "$repo_name" "$repo_url" "$buggy_hash" "$fixed_hash" "$commit_msg" >> ~/desktop/s19/gharchive-output-2019-03.txt
-        fi
-    done
   done
 done
 done 

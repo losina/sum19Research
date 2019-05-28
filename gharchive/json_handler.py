@@ -26,21 +26,31 @@ def process_msg(msg):
         return str1
 
 def get_urls(filename, event_search):
-    with open(filename) as f:
-        data = [json.loads(line) for line in f]
-        payloads = [x['payload'] for x in data if x['type'] == event_search]
-        commits = []
-        for y in payloads:
-                if 'commits' in y:
-                        parent = y['before']
-                        for i in range(len(y['commits'])):
-                                commit = y['commits'][i]
-                                # order of repo_name, repo_url, buggy_hash, fixed_hash, message
-                                commits += [(sanitize(commit['url']) + (parent, commit['sha'], process_msg(commit['message'])))]
-                                parent = y['commits'][i]['sha']
-        return commits
+        jsonf = []
+        with open(filename) as f:
+                data = [json.loads(line) for line in f]
+                payloads = [x['payload'] for x in data if x['type'] == event_search]
+                for y in payloads:
+                        if 'commits' in y:
+                                parent = y['before']
+                                for i in range(len(y['commits'])):
+                                        commit = y['commits'][i]
+                                        # order of repo_name, repo_url, buggy_hash, fixed_hash, message
+                                        url_repo = sanitize(commit['url'])
+                                        elem = {'repo_name' : url_repo[0], 
+                                        'repo_url' : url_repo[1], 
+                                        'buggy_hash' : parent, 
+                                        'fixed_hash' : commit['sha'], 
+                                        'commit_msg' : process_msg(commit['message'])}
+                                        jsonf.append(elem)
+                                        parent = y['commits'][i]['sha']
+        # with open('~\\sum19\\sum19Research\\2019-03-output.json', 'w') as outfile:
+        with open('2019-03-output.json', 'w') as outfile:
+                json.dump(jsonf, outfile)
 
 
 fn = sys.argv[1]
 evnt_srch = sys.argv[2]
 print(get_urls(fn, evnt_srch))
+
+
