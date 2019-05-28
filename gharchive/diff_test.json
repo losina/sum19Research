@@ -1,4 +1,0 @@
-[{"repo_url":"https://github.com/jessica111110/FinalProject.git","repo_name":"FinalProject","fixed_hash":"b33dac1205bfcd1f1d867aea48895e22925da908","buggy_hash":"f44c0a42773315449da57306432386b78789f299","commit_msg":"make all pages responsive and fix mobile display issues"},
-{"repo_url":"https://github.com/ayuli/shop.git","repo_name":"shop","fixed_hash":"3b78a6326c1c43f9f50e69f0bc19be5cb0eb24d7","buggy_hash":"e74d3b076956c42946191d0b1a94b16c9e4f8aa6","commit_msg":"debug"},
-{"repo_url":"https://github.com/ichenhua/laravel5-file-upload.git","repo_name":"laravel5-file-upload","fixed_hash":"faa0c012230c992870c6c4b993d33c845e398f03","buggy_hash":"675115cae2425e4545af44e41b4ed37660f88e76","commit_msg":"fix"},
-{"repo_url":"https://github.com/signalfx/signalfx-java.git","repo_name":"signalfx-java","fixed_hash":"77ce4cf8684038b5976f364d4409e8abe307b811","buggy_hash":"99865c6d9c32bfa5fb88c40ba60e2876ac95a9c2","commit_msg":"Deserialize program errors correctly"}]
