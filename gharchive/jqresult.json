@@ -1,0 +1,24 @@
+[
+  {
+    "action": "insert-node",
+    "tree": "SUB [39,46]",
+    "parent": "RETURN [32,46]",
+    "at": 0
+  },
+  {
+    "action": "move-tree",
+    "tree": "NAME: p1 [39,41]",
+    "parent": "SUB [39,46]",
+    "at": 0
+  },
+  {
+    "action": "move-tree",
+    "tree": "NAME: p2 [44,46]",
+    "parent": "SUB [39,46]",
+    "at": 1
+  },
+  {
+    "action": "delete-node",
+    "tree": "ADD [39,46]"
+  }
+]
