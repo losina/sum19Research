@@ -12,9 +12,9 @@
 
 for i in {03..03}
 do
-  for j in {01..31}
+  for j in {06..06}
   do
-    for k in {0..23}
+    for k in {6..23}
     do
       #gets json file of year/month/day/hour data
       ext="2019-$i-$j-$k"
